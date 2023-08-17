@@ -5,6 +5,8 @@ on:
     tags:
       - deploy
       - deploy.*
+    paths-ignore:
+      - '.github/**'
   workflow_dispatch:
 
 jobs:
