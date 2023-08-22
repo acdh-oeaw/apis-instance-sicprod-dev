@@ -195,8 +195,10 @@ APIS_VIEW_PASSES_TEST = apis_view_passes_test
 
 
 def apis_list_view_object_filter(view, queryset):
+    if view.request.user.is_authenticate:
+        return queryset
     return queryset.filter(collection__name__contains="published")
 
 
-#APIS_LIST_VIEWS_ALLOWED = True
-#APIS_LIST_VIEW_OBJECT_FILTER = apis_list_view_object_filter
+APIS_LIST_VIEWS_ALLOWED = True
+APIS_LIST_VIEW_OBJECT_FILTER = apis_list_view_object_filter
