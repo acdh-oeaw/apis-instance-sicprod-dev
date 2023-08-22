@@ -175,3 +175,28 @@ for template in TEMPLATES:
 
 BIBSONOMY_REFERENCE_SIMILARITY = ['bibs_url', 'pages_start', 'pages_end', 'folio']
 ROOT_URLCONF="apis_ontology.urls"
+
+
+#####################
+# Permission setup: #
+#####################
+def apis_view_passes_test(view) -> bool:
+    if view.request.user.is_authenticated:
+        return True
+    obj = view.instance
+    if hasattr(obj, 'collection'):
+        return bool(obj.collection.filter(name="published"))
+    return False
+
+
+# we have to set this, otherwise there is an error
+APIS_DETAIL_VIEWS_ALLOWED = True
+APIS_VIEW_PASSES_TEST = apis_view_passes_test
+
+
+def apis_list_view_object_filter(view, queryset):
+    return queryset.filter(collection__name__contains="published")
+
+
+APIS_LIST_VIEWS_ALLOWED = True
+APIS_LIST_VIEW_OBJECT_FILTER = apis_list_view_object_filter
