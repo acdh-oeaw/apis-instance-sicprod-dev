@@ -2,6 +2,7 @@ from apis_core.apis_entities.signals import post_merge_with
 from apis_core.apis_metainfo.signals import post_duplicate
 
 from django.dispatch import receiver
+from django.contrib.contenttypes.models import ContentType
 
 from apis_bibsonomy.models import Reference
 
@@ -18,7 +19,8 @@ def merge_references(sender, instance, entities, **kwargs):
 @receiver(post_duplicate)
 def copy_references(sender, instance, duplicate, **kwargs):
     logger.info("Copying references from {instance} to {duplicate}")
-    for ref in Reference.objects.filter(content_type=instance.self_contenttype, object_id=instance.id):
+    content_type = ContentType.objects.get_for_model(instance)
+    for ref in Reference.objects.filter(content_type=content_type, object_id=instance.id):
         ref.pk = None
         ref._state.adding = True
         ref.object_id = duplicate.id
