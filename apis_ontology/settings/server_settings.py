@@ -6,7 +6,7 @@ import os
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-# REDMINE_ID = "14590"
+REDMINE_ID = "20870"
 APIS_LIST_VIEWS_ALLOWED = False
 APIS_DETAIL_VIEWS_ALLOWED = False
 FEATURED_COLLECTION_NAME = "FEATURED"
