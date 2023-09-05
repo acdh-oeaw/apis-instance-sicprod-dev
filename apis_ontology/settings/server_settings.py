@@ -90,6 +90,10 @@ APIS_ENTITIES = {
         "list_filters": {
             "name": {"method": name_alternative_name_filter, "label": "Name or alternative name"},
         },
+        "table_fields": [
+            "name",
+            "alternative_label",
+        ],
     },
     "Court": {
         "relations_per_page": 100,
