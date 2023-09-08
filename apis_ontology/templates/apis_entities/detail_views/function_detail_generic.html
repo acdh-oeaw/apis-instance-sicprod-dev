@@ -1,4 +1,5 @@
 {% extends "apis_entities/detail_views/detail_generic.html" %}
+{% load bibsonomy_templatetags %}
 {% block info-table %}
 <table class="table table-bordered table-hover">
   <tr>
@@ -58,6 +59,10 @@
         <td>{{ object.lat }} / {{ object.lng }}</td>
       </tr>
     {% endif %}
+    <tr>
+      <th>References</th>
+      <td>{% link_to_reference_on obj=object modal=True %}</td>
+    </tr>
 
 </table>
 {% endblock info-table %}
