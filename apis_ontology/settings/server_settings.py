@@ -67,6 +67,7 @@ MAIN_TEXT_NAME = "ÖBL Haupttext"
 LANGUAGE_CODE = "de"
 
 INSTALLED_APPS += ["apis_bibsonomy"]
+INSTALLED_APPS += ["webpage"]
 
 #STATICFILES_DIRS = [BASE_DIR + "/member_images"]
 
@@ -176,6 +177,15 @@ ONTOLOGY_DIR = os.path.dirname(os.path.dirname(__file__))
 print(ONTOLOGY_DIR)
 for template in TEMPLATES:
   template["DIRS"].append(os.path.join(ONTOLOGY_DIR, "templates"))
+  template["OPTIONS"]["context_processors"].extend(
+          ["webpage.webpage_content_processors.installed_apps",
+          "webpage.webpage_content_processors.is_dev_version",
+          "webpage.webpage_content_processors.get_db_name",
+          "webpage.webpage_content_processors.title_img",
+          "webpage.webpage_content_processors.logo_img",
+          "webpage.webpage_content_processors.custom_css",
+          "webpage.webpage_content_processors.shared_url",
+          "webpage.webpage_content_processors.apis_app_name"])
 
 BIBSONOMY_REFERENCE_SIMILARITY = ['bibs_url', 'pages_start', 'pages_end', 'folio']
 ROOT_URLCONF="apis_ontology.urls"
@@ -206,3 +216,5 @@ def apis_list_view_object_filter(view, queryset):
 
 APIS_LIST_VIEWS_ALLOWED = True
 APIS_LIST_VIEW_OBJECT_FILTER = apis_list_view_object_filter
+
+BASE_TEMPLATE = "webpage/base.html"
