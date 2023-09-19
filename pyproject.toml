@@ -12,7 +12,6 @@ python = "^3.11"
 django = ">=4.1,<4.2"
 mysqlclient = "^2.0.3"
 django-extensions = "^3.1.3"
-pyzotero = "^1.5.5"
 apis-core = { git = "https://github.com/acdh-oeaw/apis-core-rdf.git", branch = "sicprod" }
 webpage = { git = "https://github.com/acdh-oeaw/apis-webpage.git", tag = "v0.2.0" }
 apis-bibsonomy = { git = "https://github.com/acdh-oeaw/apis-bibsonomy.git", branch = "birger/fix-referenceonform-issues" }
