@@ -78,12 +78,27 @@ INSTALLED_APPS += ["webpage"]
 
 APIS_RELATIONS_FILTER_EXCLUDE += ["annotation", "annotation_set_relation"]
 
-from apis_ontology.filters import name_first_name_alternative_name_filter, name_alternative_name_filter
+from apis_ontology.filters import name_first_name_alternative_name_filter, name_alternative_name_filter, filter_empty_string
 #INSTALLED_APPS.append("apis_highlighter")
+def salarychoices():
+    from apis_ontology.models import Salary
+    return Salary.TYP_CHOICES + (("empty", "Nicht gesetzt"),)
+
+def placechoices():
+    from apis_ontology.models import Place
+    return Place.TYPE_CHOICES + (("empty", "Nicht gesetzt"),)
+
+def genderchoices():
+    from apis_ontology.models import Person
+    return Person.GENDER_CHOICES + (("empty", "Nicht gesetzt"),)
+
 APIS_ENTITIES = {
     "Salary": {
         "relations_per_page": 100,
-        "search": ["name"]
+        "search": ["name"],
+        "list_filters": {
+            "typ": {"method": filter_empty_string, "extra": {"choices": salarychoices, "required": False }},
+        }
     },
     "Function": {
         "relations_per_page": 100,
@@ -107,6 +122,9 @@ APIS_ENTITIES = {
         "form_order": ["name", "kind", "lat", "lng", "status", "collection"],
         "table_fields": ["name"],
         "additional_cols": ["id", "lat", "lng", "part_of"],
+        "list_filters": {
+            "type": {"method": filter_empty_string, "extra": {"choices": placechoices, "required": False }},
+        }
     },
     "Person": {
         "relations_per_page": 100,
@@ -131,6 +149,7 @@ APIS_ENTITIES = {
         "additional_cols": ["id", "gender"],
         "list_filters": {
             "name": {"method": name_first_name_alternative_name_filter, "label": "Name or first name or alternative name"},
+            "gender": {"method": filter_empty_string, "extra": {"choices": genderchoices, "required": False}},
         },
     },
     "Institution": {
