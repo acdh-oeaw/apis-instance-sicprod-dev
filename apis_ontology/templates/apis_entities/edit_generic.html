@@ -325,4 +325,15 @@ function GetFormAjax(FormName , ObjectID , ButtonText) {
 }
 </script>
 {% endif %}
+<script>
+var native_reinitialize_bibsonomy_tooltips = reinitialize_bibsonomy_tooltips;
+reinitialize_bibsonomy_tooltips = function() {
+  console.log("override reinitialize_bibsonomy_tooltips");
+  native_reinitialize_bibsonomy_tooltips()
+  notes = document.querySelectorAll("#id_notes");
+  notes.forEach(notes => {
+    notes.rows = 4;
+  });
+}
+</script>
 {% endblock scripts %}
