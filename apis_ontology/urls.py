@@ -1,4 +1,4 @@
-from apis.urls import urlpatterns
+from apis_acdhch_default_settings.urls import urlpatterns
 from django.urls import path
 from .views import CustomReferenceDetailView, TempTripleAutocomplete, TempEntityClassAutocomplete, CustomReferenceDeleteView
 from django.contrib.auth.decorators import login_required
