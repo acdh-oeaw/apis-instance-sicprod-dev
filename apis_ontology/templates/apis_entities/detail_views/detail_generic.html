@@ -1,76 +1,36 @@
 {% extends "apis_entities/detail_views/detail_generic.html" %}
 {% load bibsonomy_templatetags %}
 {% block info-table %}
-<table class="table table-bordered table-hover">
+{{ block.super }}
+<table class="table table-hover table-bordered">
+  {% if object.alternative_label %}
   <tr>
-    <th>Titel</th>
-    <td>{{ object.name }}</td>
+    <th>Alternative Labels</th>
+    <td>{{ object.alternative_label }}</td>
   </tr>
-  {% for x in relvant_fields %}
-    <tr>
-      <th>{{ x.0 }}</th>
-      <td>
-        <small>{{ x.1 }}</small>
-      </td>
-    </tr>
-  {% endfor %}
+  {% endif %}
   <tr>
-    <th>Labels</th>
-    <td>
-      {% for x in no_merge_labels %}
-        <li>
-          <small>{{ x.label_type }}:</small>{{ x.label }}
-        </li>
-      {% endfor %}
-    </td>
+    <th>References</th>
+    <td>{% link_to_reference_on obj=object modal=True %}</td>
   </tr>
-  <tr>
-    <th>ID</th>
-    <td>{{ object.id }}</td>
-  </tr>
-  <tr>
-    <th>Type</th>
-    <td>{{ object.kind }}</td>
-  </tr>
-
-  {% if object.start_date or object.end_date %}
-    <tr>
-      <th>Date</th>
-      <td>
-
-        {% if object.start_date_written %}
-          <abbr title="{{ object.start_date }}">{{ object.start_date_written }}</abbr>
-        {% endif %}
-
-        {% if object.end_date %}- <abbr title="{{ object.end_date }}">{{ object.end_date_written }}</abbr>{% endif %}
-
-      </td>
-    </tr>
-
-    {% if user.is_authenticated %}
-      <tr>
-        <th>Notes</th>
-        <td>{{ object.notes }}</td>
-      </tr>
-    {% endif %}
-
-    <tr>
-      <th>References</th>
-      <td>{{ object.references }}</td>
-    </tr>
-    {% endif %}
-
-    {% if object.lat %}
-      <tr>
-        <th>Lat/Lng</th>
-        <td>{{ object.lat }} / {{ object.lng }}</td>
-      </tr>
-    {% endif %}
-
-    <tr>
-      <th>References</th>
-      <td>{% link_to_reference_on obj=object modal=True %}</td>
-    </tr>
-
 </table>
 {% endblock info-table %}
+
+{% block info-metadata %}
+<table class="table table-hover table-bordered" style="table-layout:fixed;">
+  <tr>
+    <th>Collections</th>
+    <td>{{ object.collection.all | join:", " }}</td>
+  </tr>
+  {% if user.is_authenticated %}
+  <tr>
+    <th>Notes</th>
+    <td>{{ object.notes }}</td>
+  </tr>
+  <tr>
+    <th>References</th>
+    <td>{{ object.references }}</td>
+  </tr>
+  {% endif %}
+</table>
+{% endblock %}
