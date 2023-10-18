@@ -68,6 +68,9 @@ LANGUAGE_CODE = "de"
 
 INSTALLED_APPS += ["apis_bibsonomy"]
 INSTALLED_APPS += ["webpage"]
+INSTALLED_APPS += ["matomo"]
+MATOMO_URL = "https://matomo.acdh.oeaw.ac.at/"
+MATOMO_SITE_ID = 242
 
 #STATICFILES_DIRS = [BASE_DIR + "/member_images"]
 
