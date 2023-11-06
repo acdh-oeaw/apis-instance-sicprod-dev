@@ -95,13 +95,17 @@ def genderchoices():
     from apis_ontology.models import Person
     return Person.GENDER_CHOICES + (("empty", "Nicht gesetzt"),)
 
+detail_view_exclude = ["references", "notes", "published", "review"]
+
 APIS_ENTITIES = {
     "Salary": {
         "relations_per_page": 100,
         "search": ["name"],
         "list_filters": {
             "typ": {"method": filter_empty_string, "extra": {"choices": salarychoices, "required": False }},
-        }
+        },
+        "detail_view_exclude": detail_view_exclude,
+
     },
     "Function": {
         "relations_per_page": 100,
@@ -113,10 +117,12 @@ APIS_ENTITIES = {
             "name",
             "alternative_label",
         ],
+        "detail_view_exclude": detail_view_exclude,
     },
     "Court": {
         "relations_per_page": 100,
-        "search": ["name", "alternative_label"]
+        "search": ["name", "alternative_label"],
+        "detail_view_exclude": detail_view_exclude,
     },
     "Place": {
         "relations_per_page": 100,
@@ -127,7 +133,8 @@ APIS_ENTITIES = {
         "additional_cols": ["id", "lat", "lng", "part_of"],
         "list_filters": {
             "type": {"method": filter_empty_string, "extra": {"choices": placechoices, "required": False }},
-        }
+        },
+        "detail_view_exclude": detail_view_exclude,
     },
     "Person": {
         "relations_per_page": 100,
@@ -154,6 +161,7 @@ APIS_ENTITIES = {
             "name": {"method": name_first_name_alternative_name_filter, "label": "Name or first name or alternative name"},
             "gender": {"method": filter_empty_string, "extra": {"choices": genderchoices, "required": False}},
         },
+        "detail_view_exclude": detail_view_exclude,
     },
     "Institution": {
         "relations_per_page": 100,
@@ -171,6 +179,7 @@ APIS_ENTITIES = {
             "id",
             "kind",
         ],
+        "detail_view_exclude": detail_view_exclude,
     },
     "Work": {
         "relations_per_page": 100,
@@ -180,6 +189,7 @@ APIS_ENTITIES = {
             "id",
             "kind",
         ],
+        "detail_view_exclude": detail_view_exclude,
     },
     "Event": {
         "relations_per_page": 100,
@@ -188,6 +198,7 @@ APIS_ENTITIES = {
         "additional_cols": [
             "id",
         ],
+        "detail_view_exclude": detail_view_exclude,
     },
 }
 
