@@ -13,6 +13,10 @@
     <th>References</th>
     <td>{% link_to_reference_on obj=object modal=True %}</td>
   </tr>
+  <tr>
+    <th>URIs</th>
+    <td>{{ object.uri_set.all | join:", " | urlize}}</td>
+  </tr>
 </table>
 {% endblock info-table %}
 
