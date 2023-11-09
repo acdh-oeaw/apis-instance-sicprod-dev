@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "bewohnt",
-        "name_reverse": "Bewohner von",
+        "name_reverse": "hat als Bewohner",
         "obj": [
             "Place"
         ],
@@ -13,7 +13,7 @@
     {
         "id": 2,
         "name": "besitzt",
-        "name_reverse": "Besitzer von",
+        "name_reverse": "ist im Besitz von",
         "obj": [
             "Place"
         ],
@@ -67,8 +67,8 @@
     },
     {
         "id": 7,
-        "name": "empfahl",
-        "name_reverse": "wurde empfohlen von",
+        "name": "empfiehlt",
+        "name_reverse": "wird empfohlen von",
         "obj": [
             "Person"
         ],
@@ -89,8 +89,8 @@
     },
     {
         "id": 9,
-        "name": "Mitglied von",
-        "name_reverse": "hatte Mitglied",
+        "name": "ist Mitglied von",
+        "name_reverse": "hat Mitglied",
         "obj": [
             "Institution"
         ],
@@ -100,8 +100,8 @@
     },
     {
         "id": 10,
-        "name": "nahm teil an",
-        "name_reverse": "hatte teilnehmende Person",
+        "name": "nimmt teil an",
+        "name_reverse": "hat als Teilnehmer",
         "obj": [
             "Event"
         ],
@@ -111,8 +111,8 @@
     },
     {
         "id": 11,
-        "name": "erhielt Gehalt",
-        "name_reverse": "wurde ausbezahlt an",
+        "name": "wird ausbezahlt an",
+        "name_reverse": "erhält",
         "obj": [
             "Person"
         ],
@@ -134,7 +134,7 @@
     },
     {
         "id": 13,
-        "name": "wird bekleidet von",
+        "name": "wird ausgeübt von",
         "name_reverse": "hat Funktion inne",
         "obj": [
             "Person"
@@ -145,8 +145,8 @@
     },
     {
         "id": 14,
-        "name": "Teil von",
-        "name_reverse": "hat Teil",
+        "name": "ist Teil von",
+        "name_reverse": "hat als Teil",
         "obj": [
             "Place"
         ],
@@ -156,8 +156,8 @@
     },
     {
         "id": 15,
-        "name": "zahlte aus",
-        "name_reverse": "wurde ausbezahlt von",
+        "name": "führt durch",
+        "name_reverse": "wird durchgeführt von",
         "obj": [
             "Salary"
         ],
@@ -201,7 +201,7 @@
     {
         "id": 145,
         "name": "weist an",
-        "name_reverse": "auf Anweisung von",
+        "name_reverse": "wird angewiesen von",
         "obj": [
             "Salary"
         ],
@@ -211,8 +211,8 @@
     },
     {
         "id": 146,
-        "name": "geboren in",
-        "name_reverse": "Geburtsort von",
+        "name": "ist geboren in",
+        "name_reverse": "ist Geburtsort von",
         "obj": [
             "Place"
         ],
@@ -222,8 +222,8 @@
     },
     {
         "id": 147,
-        "name": "gestorben in",
-        "name_reverse": "Sterbeort von",
+        "name": "ist gestorben in",
+        "name_reverse": "ist Sterbeort von",
         "obj": [
             "Place"
         ],
@@ -266,8 +266,8 @@
     },
     {
         "id": 151,
-        "name": "fand statt in",
-        "name_reverse": "inkludierte",
+        "name": "findet statt in",
+        "name_reverse": "ist Austragungsort von",
         "obj": [
             "Place"
         ],
@@ -277,8 +277,8 @@
     },
     {
         "id": 152,
-        "name": "wurde ausbezahlt an",
-        "name_reverse": "erhielt",
+        "name": "wird ausbezahlt an",
+        "name_reverse": "erhält",
         "obj": [
             "Function"
         ],
@@ -321,8 +321,8 @@
     },
     {
         "id": 476,
-        "name": "war t\u00e4tig an",
-        "name_reverse": "hatte t\u00e4tige Person",
+        "name": "ist t\u00e4tig an",
+        "name_reverse": "hat t\u00e4tige Person",
         "obj": [
             "Institution"
         ],
@@ -344,7 +344,7 @@
     {
         "id": 478,
         "name": "ausge\u00fcbt in",
-        "name_reverse": "war Aus\u00fcbungsort von",
+        "name_reverse": "ist Aus\u00fcbungsort von",
         "obj": [
             "Place"
         ],
@@ -355,7 +355,7 @@
     {
         "id": 1978,
         "name": "ist im Dienst von",
-        "name_reverse": "hat Diener",
+        "name_reverse": "beschäftigt",
         "obj": [
             "Person"
         ],
@@ -366,7 +366,7 @@
     {
         "id": 2421,
         "name": "hat Heimatort in",
-        "name_reverse": "Heimatort von",
+        "name_reverse": "ist Heimatort von",
         "obj": [
             "Place"
         ],
@@ -377,7 +377,7 @@
     {
         "id": 2422,
         "name": "ist verpf\u00e4ndet an",
-        "name_reverse": "hat als Pfand",
+        "name_reverse": "besitzt als Pfand",
         "obj": [
             "Person"
         ],
@@ -399,7 +399,7 @@
     {
         "id": 2424,
         "name": "weist an",
-        "name_reverse": "angewiesen von",
+        "name_reverse": "wird angewiesen von",
         "obj": [
             "Salary"
         ],
@@ -409,8 +409,8 @@
     },
     {
         "id": 2425,
-        "name": "auf Anweisung von",
-        "name_reverse": "wies an",
+        "name": "wird angewiesen von",
+        "name_reverse": "weist an",
         "obj": [
             "Function"
         ],
@@ -467,7 +467,7 @@
     {
         "id": 4290,
         "name": "b\u00fcrgt f\u00fcr",
-        "name_reverse": "wird geb\u00fcrgt von",
+        "name_reverse": "hat als B\u00fcrgen",
         "obj": [
             "Person"
         ],
