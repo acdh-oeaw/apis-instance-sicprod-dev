@@ -81,7 +81,7 @@ MATOMO_SITE_ID = 242
 
 APIS_RELATIONS_FILTER_EXCLUDE += ["annotation", "annotation_set_relation"]
 
-from apis_ontology.filters import name_first_name_alternative_name_filter, name_alternative_name_filter, filter_empty_string
+from apis_ontology.filters import name_first_name_alternative_name_filter, name_alternative_name_filter, filter_empty_string, filter_status
 #INSTALLED_APPS.append("apis_highlighter")
 def salarychoices():
     from apis_ontology.models import Salary
@@ -160,6 +160,7 @@ APIS_ENTITIES = {
         "list_filters": {
             "name": {"method": name_first_name_alternative_name_filter, "label": "Name or first name or alternative name"},
             "gender": {"method": filter_empty_string, "extra": {"choices": genderchoices, "required": False}},
+            "status": {"method": filter_status},
         },
         "detail_view_exclude": detail_view_exclude,
     },

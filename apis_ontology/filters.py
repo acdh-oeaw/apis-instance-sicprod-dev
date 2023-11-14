@@ -16,3 +16,6 @@ def filter_empty_string(queryset, name, value):
         value = ""
     lookup = f"{name}__exact"
     return queryset.filter(**{lookup: value})
+
+def filter_status(queryset, name, value):
+    return queryset.filter(status__icontains=value)
