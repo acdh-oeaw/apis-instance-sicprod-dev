@@ -166,17 +166,6 @@
         ]
     },
     {
-        "id": 142,
-        "name": "ist Elternteil von",
-        "name_reverse": "ist Kind von",
-        "obj": [
-            "Person"
-        ],
-        "subj": [
-            "Person"
-        ]
-    },
-    {
         "id": 143,
         "name": "ist Bruder/Schwester von",
         "name_reverse": "ist Bruder/Schwester von",
