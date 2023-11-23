@@ -1,12 +1,13 @@
 from apis_acdhch_default_settings.urls import urlpatterns
 from django.urls import path, include
 from .views import CustomReferenceDetailView, TempTripleAutocomplete, TempEntityClassAutocomplete, CustomReferenceDeleteView
-from .api import ReferenceViewSet
+from .api import ReferenceViewSet, LabelViewSet
 from django.contrib.auth.decorators import login_required
 from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'references', ReferenceViewSet)
+router.register(r'labels', LabelViewSet)
 
 customurlpatterns = [
     path("bibsonomy/references/<int:pk>", login_required(CustomReferenceDetailView.as_view()), name='referencedetail'),
