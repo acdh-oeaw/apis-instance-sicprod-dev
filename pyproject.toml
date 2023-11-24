@@ -15,7 +15,7 @@ django-extensions = "^3.1.3"
 apis-core = { git = "https://github.com/acdh-oeaw/apis-core-rdf.git", tag = "v0.6.2" }
 webpage = { git = "https://github.com/acdh-oeaw/apis-webpage.git", tag = "v1.0.1" }
 apis-bibsonomy = { git = "https://github.com/acdh-oeaw/apis-bibsonomy.git", branch = "birger/fix-referenceonform-issues" }
-apis-acdhch-default-settings = { git = "https://github.com/acdh-oeaw/apis-acdhch-default-settings.git", tag = "v0.1.9" }
+apis-acdhch-default-settings = { git = "https://github.com/acdh-oeaw/apis-acdhch-default-settings.git", tag = "v0.1.11" }
 django-matomo = "^0.1.6"
 # workaround for https://github.com/acdh-oeaw/apis-bibsonomy/issues/38
 jmespath = "^0.10.0"
